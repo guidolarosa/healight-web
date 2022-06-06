@@ -89,14 +89,10 @@ const Equipos: NextPage = (props : any) => {
     )
 }
 const StyledHeader = styled<any>(Box)`
-    header {
-        .hero-equipos {
-            background-image: url('/img/equipos/equipos_header.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-    }
+    background-image: url('/img/equipos/equipos_header.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 `;
 
 const StyledEquiposPage = styled<any>(Flex)`
