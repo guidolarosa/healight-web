@@ -7,7 +7,6 @@ import ReactMarkdown from 'react-markdown';
 import FadeUp from "../../components/FadeUp";
 
 const Post = (props : any) => {
-    console.log(props);
     return (
         <StyledPostPage flexDirection={"column"}>
             <Root>
@@ -67,7 +66,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context : any) {
-    console.log(context);
     const postProps = await fetchAPI(`/posts/${context.params.postName}`, {
         populate: {
             HeaderImage: '*'

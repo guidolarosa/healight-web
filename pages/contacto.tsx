@@ -14,7 +14,6 @@ import ContactForm from '../components/ContactForm';
 import SocialLinks from '../components/SocialLinks';
 
 const Equipos: NextPage = (props : any) => {
-    console.log(props.equiposProps)
     return (
         <StyledEquiposPage flexDirection={"column"}>
             <Root showFooter={false}>

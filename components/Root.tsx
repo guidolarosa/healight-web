@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Root = (props : any) => {
-    // console.log(props)
     return (
         <StyledRoot pt={"4rem"}>
             <Box as={"header"} >

@@ -13,7 +13,6 @@ import FadeUp from '../components/FadeUp';
 import ProductCard from '../components/ProductCard';
 
 const Equipos: NextPage = (props : any) => {
-    console.log(props.equiposProps)
     return (
         <StyledEquiposPage flexDirection={"column"}>
             <Root

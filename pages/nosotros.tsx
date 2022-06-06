@@ -12,7 +12,6 @@ import Card from './../components/Card';
 import FadeUp from '../components/FadeUp';
 
 const Nosotros: NextPage = (props : any) => {
-    console.log(props.nosotrosProps);
 
     return (
         <StyledNosotrosPage flexDirection={"column"}>

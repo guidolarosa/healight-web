@@ -9,8 +9,6 @@ import { getStrapiMedia } from '../../lib/media';
 import Link from './../../components/Link';
 
 const Blog: NextPage = (props : any) => {
-    console.log(props.postsProps);
-
     const formatTimestamp = (timestamp : string) => {
         let newDate = new Date(timestamp).toLocaleDateString('es');
         return newDate;

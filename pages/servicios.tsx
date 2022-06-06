@@ -12,7 +12,6 @@ import { getStrapiMedia } from '../lib/media';
 import FadeUp from '../components/FadeUp';
 
 const Equipos: NextPage = (props : any) => {
-    console.log(props.equiposProps)
     return (
         <StyledEquiposPage flexDirection={"column"}>
             <Root
