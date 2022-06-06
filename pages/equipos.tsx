@@ -13,6 +13,7 @@ import FadeUp from '../components/FadeUp';
 import ProductCard from '../components/ProductCard';
 
 const Equipos: NextPage = (props : any) => {
+    console.log(props);
     return (
         <StyledEquiposPage flexDirection={"column"}>
             <Root
@@ -68,7 +69,6 @@ const Equipos: NextPage = (props : any) => {
                     <FadeUp>
                         <Flex flexDirection={"column"}  mx={"auto"} width={['90%', '90%', '90%', '64rem']}>
                             {props.equiposProps.data.map((maker : any, index : number) => {
-                                console.log(maker);
                                 return (
                                     <Flex key={index} flexDirection={"column"} width={"100%"}>
                                         <Text as="h2" mb={"2rem"}>{maker.attributes.Name}</Text>
