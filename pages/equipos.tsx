@@ -15,17 +15,17 @@ import ProductCard from '../components/ProductCard';
 const Equipos: NextPage = (props : any) => {
     console.log(props);
     return (
-        <StyledEquiposPage flexDirection={"column"}>
-            <Root
-                header={
-                    <Box className={"hero-equipos"} height="calc(100vh - 4rem)">
-                        {/* <Flex width={['90%', '90%', '90%', '64rem']} mx={"auto"} alignItems={"center"} height={"100%"}>
-                            <Text as="h1" mb={"2rem"} fontSize={"4rem"} color={"white"} sx={{textShadow: '0 0.25rem 10px hsla(0, 0%, 0%, 0.5)'}}>Nuestros equipos</Text>
-                        </Flex> */}
-                    </Box>
-                }
-                >
-                <Flex flexDirection={"column"} sx={{background: 'black', color: 'white'}} pb={"10rem"}>
+        <Root
+            header={
+                <Box className={"hero-equipos"} height="calc(100vh - 4rem)">
+                    {/* <Flex width={['90%', '90%', '90%', '64rem']} mx={"auto"} alignItems={"center"} height={"100%"}>
+                        <Text as="h1" mb={"2rem"} fontSize={"4rem"} color={"white"} sx={{textShadow: '0 0.25rem 10px hsla(0, 0%, 0%, 0.5)'}}>Nuestros equipos</Text>
+                    </Flex> */}
+                </Box>
+            }
+            >
+                <StyledEquiposPage flexDirection={"column"}>
+                    <Flex flexDirection={"column"} sx={{background: 'black', color: 'white'}} pb={"10rem"}>
                     <FadeUp>
                         <Flex 
                             mx={"auto"}
@@ -88,8 +88,8 @@ const Equipos: NextPage = (props : any) => {
                         </Flex>
                     </FadeUp>
                 </Flex>
-            </Root>
-        </StyledEquiposPage>
+            </StyledEquiposPage>
+        </Root>
     )
 }
 

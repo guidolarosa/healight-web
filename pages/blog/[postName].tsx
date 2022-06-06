@@ -7,8 +7,8 @@ import ReactMarkdown from 'react-markdown';
 
 const Post = (props : any) => {
     return (
-        <StyledPostPage flexDirection={"column"}>
-            <Root>
+        <Root>
+            <StyledPostPage flexDirection={"column"}>
                 <Flex width={"100%"} sx={{background: 'white'}} py={"4rem"}>
                     <Flex flexDirection={"column"} width={['90%', '90%', '90%', '64rem']} mx={"auto"} pt={'2rem'} pb={'2rem'} sx={{background: 'white'}}>
                         <Text as="h1" mb={"1.5rem"}>{props.postProps.data.attributes.Title}</Text>
@@ -29,8 +29,8 @@ const Post = (props : any) => {
                         </Box>
                     </Flex>
                 </Flex>
-            </Root>
-        </StyledPostPage>
+            </StyledPostPage>
+        </Root>
     )
 }
 
