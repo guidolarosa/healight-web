@@ -71,7 +71,7 @@ const StyledEquiposPage = styled<any>(Flex)`
 
 export default Equipos;
 
-export async function getStaticProps(context : any) {
+export async function getServerSideProps(context : any) {
     const equiposProps = await fetchAPI("/makers", {
       populate: {
         Products: {
