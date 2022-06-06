@@ -64,7 +64,7 @@ const Equipos: NextPage = (props : any) => {
                     <FadeUp>
                         <Flex flexDirection={"column"}  mx={"auto"} width={['90%', '90%', '90%', '64rem']}>
                             {props.equiposProps.data.map((maker : any, index : any) => (
-                                <Flex>
+                                <Flex key={index}>
                                     <Flex flexDirection={"column"} width={"100%"}>
                                         <Text as="h2" mb={"2rem"}>{maker.attributes.Name}</Text>
                                         <Flex width={"100%"}>

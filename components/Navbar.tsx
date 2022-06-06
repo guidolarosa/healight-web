@@ -19,7 +19,7 @@ const Navbar = (props : any) => {
             <Flex className="navbar-inner-content" alignItems={"center"} width={['90%', '90%', '90%', '64rem']}>
                 <Box width={110}>
                     <Link href="/">
-                        <Image src={'/logos/healight-a.svg'} width={300} height={80} layout="intrinsic" />
+                        <Image alt="Healight Logo" src={'/logos/healight-a.svg'} width={300} height={80} layout="intrinsic" />
                     </Link>
                 </Box>
                 <Box onClick={() => {setIsMobileNavOpen(!isMobileNavOpen)}} ml={"auto"} display={['inline-block', 'none', 'none']}>
