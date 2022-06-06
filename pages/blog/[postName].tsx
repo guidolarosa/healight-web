@@ -4,10 +4,9 @@ import Root from "../../components/Root";
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 import ReactMarkdown from 'react-markdown';
-import FadeUp from "../../components/FadeUp";
 
 const Post = (props : any) => {
-    return props.postProps.data.attributes && (
+    return (
         <StyledPostPage flexDirection={"column"}>
             <Root>
                 <Flex width={"100%"} sx={{background: 'white'}} py={"4rem"}>
@@ -65,7 +64,7 @@ export async function getStaticPaths() {
     }
 }
 
-export async function getStaticProps(context : any) {
+export async function getServerSideProps(context : any) {
     const postProps = await fetchAPI(`/posts/${context.params.postName}`, {
         populate: {
             HeaderImage: '*'
