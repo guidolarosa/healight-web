@@ -53,16 +53,16 @@ const StyledPostPage = styled(Flex)`
 
 export default Post;
 
-export async function getStaticPaths() {
-    const posts = await fetchAPI("/posts");
+// export async function getStaticPaths() {
+//     const posts = await fetchAPI("/posts");
 
-    const paths = posts.data.map((post : any) => ({params: { postName: post.id.toString()} }));
+//     const paths = posts.data.map((post : any) => ({params: { postName: post.id.toString()} }));
 
-    return {
-        paths: paths,
-        fallback: true,
-    }
-}
+//     return {
+//         paths: paths,
+//         fallback: true,
+//     }
+// }
 
 export async function getServerSideProps(context : any) {
     const postProps = await fetchAPI(`/posts/${context.params.postName}`, {
