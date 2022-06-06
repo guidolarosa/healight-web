@@ -4,10 +4,6 @@ const nextConfig = {
   images: {
     loader: "default",
     domains: ["localhost"],
-  },
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en'
   }
 }
 
