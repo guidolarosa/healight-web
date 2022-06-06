@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import FadeUp from "../../components/FadeUp";
 
 const Post = (props : any) => {
-    return (
+    return props.postProps.data && (
         <StyledPostPage flexDirection={"column"}>
             <Root>
                 <Flex width={"100%"} sx={{background: 'white'}} py={"4rem"}>
