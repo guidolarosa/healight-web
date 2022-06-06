@@ -17,11 +17,7 @@ const Equipos: NextPage = (props : any) => {
     return (
         <Root
             header={
-                <Box className={"hero-equipos"} height="calc(100vh - 4rem)">
-                    {/* <Flex width={['90%', '90%', '90%', '64rem']} mx={"auto"} alignItems={"center"} height={"100%"}>
-                        <Text as="h1" mb={"2rem"} fontSize={"4rem"} color={"white"} sx={{textShadow: '0 0.25rem 10px hsla(0, 0%, 0%, 0.5)'}}>Nuestros equipos</Text>
-                    </Flex> */}
-                </Box>
+                <StyledHeader className={"hero-equipos"} height="calc(100vh - 4rem)"/>
             }
             >
                 <StyledEquiposPage flexDirection={"column"}>
@@ -92,8 +88,7 @@ const Equipos: NextPage = (props : any) => {
         </Root>
     )
 }
-
-const StyledEquiposPage = styled<any>(Flex)`
+const StyledHeader = styled<any>(Box)`
     header {
         .hero-equipos {
             background-image: url('/img/equipos/equipos_header.png');
@@ -102,6 +97,9 @@ const StyledEquiposPage = styled<any>(Flex)`
             background-position: center;
         }
     }
+`;
+
+const StyledEquiposPage = styled<any>(Flex)`
 `;
 
 export default Equipos;
