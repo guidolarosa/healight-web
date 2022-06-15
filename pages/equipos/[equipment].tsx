@@ -83,7 +83,7 @@ const Equipo: NextPage = (props : any) => {
                         </Box>
                         <Box sx={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
                             {equipment.MainImageHotspots.map((hotspot : any) => (
-                                <Box sx={{
+                                <Box key={hotspot.id} sx={{
                                     position: 'absolute',
                                     top: (hotspot.TooltipPositionY * 100) + '%',
                                     left: (hotspot.TooltipPositionX * 100) + '%',
@@ -151,6 +151,9 @@ const Equipo: NextPage = (props : any) => {
                                 {equipment.Features}
                             </ReactMarkdown>
                         </Box>
+                    </Flex>
+                    <Flex>
+                        
                     </Flex>
                     <Flex flexDirection={'column'} width={'100%'}>
                         <Text as="h2" mb={"4rem"} fontSize={'2.2rem'}>Accesorios</Text>
