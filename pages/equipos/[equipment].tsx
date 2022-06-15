@@ -3,13 +3,11 @@ import styled from 'styled-components';
 import { Box, Flex, Text } from 'rebass'
 import Root from '../../components/Root';
 import { NextPage } from 'next';
-import theme from '../../utils/theme'
 import Link from '../../components/Link';
 import { fetchAPI } from '../../lib/api';
 import { getStrapiMedia } from '../../lib/media';
 import { FaSearchPlus } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
-import FadeUp from '../../components/FadeUp';
 
 
 const Equipo: NextPage = (props : any) => {
@@ -197,7 +195,6 @@ const StyledEquipoPage = styled(Flex)``;
 const StyledHeader = styled(Flex)``;
 
 export async function getServerSideProps(context : any) {
-    console.log(context.params.equipment);
     const equipoProps = await fetchAPI("/equipments", {
         populate: {
             MainImage: '*',
@@ -216,12 +213,6 @@ export async function getServerSideProps(context : any) {
             }
         }
     });
-
-    // const equipoProps = {
-    //     attributes: {
-    //         Name: 'Monolith'
-    //     }
-    // }
     return {
       props: { equipoProps }
     }
