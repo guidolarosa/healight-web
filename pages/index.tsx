@@ -13,7 +13,6 @@ import Link from '../components/Link'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import FadeUp from '../components/FadeUp';
-import particleConfig from './../config/particlesConfig.json';
 import ReactMarkdown from 'react-markdown'
 
 
