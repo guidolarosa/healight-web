@@ -6,102 +6,160 @@ import { NextPage } from 'next';
 import theme from './../utils/theme'
 import Link from './../components/Link';
 import { BsHeadset } from 'react-icons/bs'
+import { FaTools, FaToolbox,  } from 'react-icons/fa'
+import { RiArrowDropDownLine } from 'react-icons/ri';
+import { HiAcademicCap } from 'react-icons/hi';
 import { fetchAPI } from '../lib/api';
 import Card from '../components/Card';
 import { getStrapiMedia } from '../lib/media';
 import FadeUp from '../components/FadeUp';
 
-const Equipos: NextPage = (props : any) => {
+const ServiceCard = (props : any) => (
+    <Flex sx={{backgroundColor: 'white', flexDirection: 'column', textAlign: 'center', alignItems: 'center', borderRadius: '0.5rem'}} {...props} pt={"2rem"}>
+        <Flex sx={{borderRadius: '0.25rem', alignItems: 'center', justifyContent: 'center'}} mb={"2rem"} width={"4rem"} height={"4rem"} backgroundColor="lightgray">
+            {props.icon}
+        </Flex>
+        <Text as="h3" fontSize={"1.5rem"}>
+            {props.title}
+        </Text>
+        <RiArrowDropDownLine 
+            fontSize={'3rem'}
+            color={"#93D4D0"}
+        />
+        <Box height="1rem" backgroundColor={"#93D4D0"} width="100%" sx={{
+            borderRadius: '0 0 0.5rem 0.5rem'
+        }}/>
+    </Flex>
+)
+
+const Servicios: NextPage = (props : any) => {
     return (
         <Root
             header={
-                <StyledHeader className={"hero-equipos"} height="calc(100vh - 4rem)">
+                <StyledHeader height="calc(30rem)">
+                    <Flex mx={"auto"}
+                        alignItems={["auto", "auto", "center"]}
+                        flexDirection={["column"]}
+                        justifyContent={'center'}
+                        width={['90%', '90%', '90%', '64rem']}
+                        height="100%"
+                    >
+                        <Text as="strong" sx={{
+                            color: 'white',
+                            fontSize: '3rem',
+                            textAlign: 'center',
+                            textShadow: '0 0 0.3rem hsla(0, 0%, 0%, 0.8)'
+                            }}
+                        >
+                            Brindamos el servicio post-venta más completo del mercado
+                        </Text>
+                    </Flex>
                 </StyledHeader>
             }
         >
-            <StyledEquiposPage flexDirection={"column"}>
-                <Flex flexDirection={"column"} sx={{background: 'black', color: 'white'}} pb={"10rem"}>
-                <FadeUp>
-                    <Flex 
-                        mx={"auto"}
-                        py={"4rem"}
-                        alignItems={"center"}
-                        justifyContent={"space-between"}
-                        width={['90%', '90%', '90%', '64rem']}
-                    >
-                        <Box width={"44rem"}>
-                            <Text 
-                                fontSize={"2rem"}
-                                color={"white"}
-                            ><strong>Somos representantes oficiales </strong>de las empresas líder en tecnología médica láser</Text>
+            <StyledServiciosPage flexDirection={"column"} sx={{backgroundColor: 'whitesmoke'}}>
+                <Flex mx={"auto"}
+                    alignItems={["auto", "auto", "center"]}
+                    flexDirection={["column"]}
+                    justifyContent={'center'}
+                    width={['90%', '90%', '90%', '64rem']}
+                    height="100%"
+                    pt={'4rem'}
+                    pb={'12rem'}
+                >
+                    <Flex width={'100%'} mx={'4rem'}>
+                        <ServiceCard 
+                            width={[1,1,1/3]}
+                            title="Servicio Técnico"
+                            mx={'1rem'}
+                            icon={<FaTools fontSize={"2rem"} />}
+                            />
+                        <ServiceCard 
+                            width={[1,1,1/3]}
+                            title="Marketing Kit"
+                            mx={'1rem'}
+                            icon={<FaToolbox fontSize={"2rem"} />}
+                            />
+                        <ServiceCard 
+                            width={[1,1,1/3]}
+                            title="Healight Academy"
+                            mx={'1rem'}
+                            icon={<HiAcademicCap fontSize={"2rem"} />}
+                        />
+                    </Flex>
+                    <Flex width="100%" mt={"8rem"} alignItems={'center'}>
+                        <Box width={1/2}>
+                            <Text as="h2" fontSize={"2rem"} mb={"1rem"}>Servicio Técnico</Text>
+                            <Flex as="ul" flexDirection="column" sx={{
+                                'li': {
+                                    listStyle: 'circle',
+                                    mb: '0.5rem',
+                                    lineHeight: '1.5rem'
+                                }
+                            }}>
+                                <Box as="li">
+                                    Respondemos consultas en un lapso de 24hs hábiles.
+                                </Box>
+                                <Box as="li">
+                                    Controlamos las condiciones de trabajo y recomendamos el uso óptimo del equipo en cada vista.
+                                </Box>
+                                <Box as="li">
+                                    No realizamos ninguna reparación sin contar con la autorización correspondiente por escrito.
+                                </Box>
+                                <Box as="li">
+                                    Garantizamos por 3 meses la mano de obra de cualquier reparación realizada en nuestro taller.
+                                </Box>
+                                <Box as="li">
+                                    Proveemos el mejor programa de mantenimiento preventivo de equipos de nuestras marcas distribuidoras.
+                                </Box>
+                                <Box as="li">
+                                    Brindamos asesoramiento idóneo para el adecuado mantenimientoy recambio de equipos.
+                                </Box>
+                            </Flex>
                         </Box>
-                        <Flex className="need-help" alignItems={"center"}>
-                            <Flex 
-                                sx={{
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    width: '3.5rem',
-                                    height: '3.5rem',
-                                    background: 'hsla(0, 0%, 7%, 1)',
-                                    mr: '0.5rem',
-                                    borderRadius: '3.5rem'
-                                }}
-                            >
-                                <BsHeadset fontSize={"1.5rem"} color={"white"} />
-                            </Flex>
-                            <Flex flexDirection={'column'}>
-                                <Text color={"white"}>¿Necesitás ayuda?</Text>
-                                <Link color={theme.color.primary}>
-                                    +54 9 11 3158 9030
-                                </Link>
-                            </Flex>
+                        <Flex width={1/2}>
+                            <Box mx={"auto"} as="img" src="/img/equipos/asclepion/mediostar_monolith/3.png" height={"20rem"}/>
                         </Flex>
                     </Flex>
-                </FadeUp>
-                {/* Makers top List */}
-                <Flex></Flex>
-                <FadeUp>
-                    <Flex flexDirection={"column"}  mx={"auto"} width={['90%', '90%', '90%', '64rem']}>
-                        {props.equiposProps.data.map((maker : any, index : any) => (
-                            <Flex key={index}>
-                                <Flex flexDirection={"column"} width={"100%"}>
-                                    <Text as="h2" mb={"2rem"}>{maker.attributes.Name}</Text>
-                                    <Flex width={"100%"}>
-                                        {maker.attributes.Products.data.map((product : any, index : number) => (
-                                            <Card 
-                                                key={index}
-                                                sx={{
-                                                    backgroundColor: 'hsla(240, 2%, 8%, 1) !important',
-                                                    width: "33%",
-                                                    border: '1px solid hsla(0, 0%, 44%, 1) !important',
-                                                    color: 'white',
-                                                    borderRadius: '1rem'
-                                                }}
-                                            >
-                                                <Flex flexDirection={"column"} p="1rem">
-                                                    <Text mb={"0.5rem !important"} as="h3">{product.attributes.Name}</Text>
-                                                    <Text>{product.attributes.ShortDescription}</Text>
-                                                </Flex>
-                                                <Box px={"1rem"}>
-                                                    <Box sx={{
-                                                        backgroundImage: `url(${getStrapiMedia(product.attributes.MainImage)})`,
-                                                        height: '20rem',
-                                                        backgroundSize: 'contain',
-                                                        backgroundRepeat: 'no-repeat',
-                                                        backgroundPosition: 'bottom center'
-                                                        }}
-                                                    />
-                                                </Box>
-                                            </Card>
-                                        ))}
-                                    </Flex>
-                                </Flex>
+                    <Flex width="100%" mt={"8rem"}>
+                        <Box width={1/2}>
+                            <Box as="img" src={"/img/servicios/marketing_kit.png"} />
+                        </Box>
+                        <Box width={1/2}>
+                            <Text as="h2" fontSize={"2rem"} mb={"1rem"}>Marketing Kit</Text>
+                            <Text mb={"2rem"}>Con la compra de cada equipo, se entrega un Marketing Kit que contiene:</Text>
+                            <Flex as="ul" flexDirection="column" sx={{
+                                'li': {
+                                    listStyle: 'circle',
+                                    mb: '0.5rem',
+                                }
+                            }}>
+                                <Box as="li">
+                                    Pendrive con información en formato digital e instructivos sobre como utilizar el equipo.
+                                </Box>
+                                <Box as="li">
+                                    Brochure, folletería, trípticos sobre tratamientos y equipos. - Starter pack para realizar tratamientos.
+                                </Box>
+                                <Box as="li">
+                                    Banner para tu consultorio.
+                                </Box>
                             </Flex>
-                            ))}
+                        </Box>
+                    </Flex>
+                    <Flex width="100%" mt={"8rem"} alignItems={"center"}>
+                        <Box width={1/2}>
+                            <Text as="h2" fontSize={"2rem"} mb={"1rem"}>Healight Academy</Text>
+                            <Text as="h3" mb={"1rem"}>Capacitaciones</Text>
+                            <Text sx={{lineHeight: '1.5rem'}}>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor nvidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor nvidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                            </Text>
+                        </Box>
+                        <Flex width={1/2}>
+                            <Box as="img" src={"/img/servicios/academy.png"} height={"20rem"} ml={"auto"} sx={{borderRadius: '0.5rem'}}/>
                         </Flex>
-                    </FadeUp>
+                    </Flex>
                 </Flex>
-            </StyledEquiposPage>
+            </StyledServiciosPage>
         </Root>
     )
 }
@@ -113,10 +171,10 @@ const StyledHeader = styled<any>(Box)`
     background-position: center;
 `;
 
-const StyledEquiposPage = styled<any>(Flex)`
+const StyledServiciosPage = styled<any>(Flex)`
 `;
 
-export default Equipos;
+export default Servicios;
 
 export async function getServerSideProps(context : any) {
     const equiposProps = await fetchAPI("/makers", {
@@ -131,4 +189,4 @@ export async function getServerSideProps(context : any) {
     return {
       props: { equiposProps }
     }
-  }
+}

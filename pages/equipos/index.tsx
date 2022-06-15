@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
 import { Box, Flex, Text } from 'rebass'
-import Root from '../components/Root';
+import Root from '../../components/Root';
 import { NextPage } from 'next';
-import theme from './../utils/theme'
-import Link from './../components/Link';
+import theme from '../../utils/theme'
+import Link from '../../components/Link';
 import { BsHeadset } from 'react-icons/bs'
-import { fetchAPI } from '../lib/api';
-import Card from '../components/Card';
-import { getStrapiMedia } from '../lib/media';
-import FadeUp from '../components/FadeUp';
-import ProductCard from '../components/ProductCard';
+import { fetchAPI } from '../../lib/api';
+import FadeUp from '../../components/FadeUp';
+import ProductCard from '../../components/ProductCard';
 
 const Equipos: NextPage = (props : any) => {
     console.log(props);
@@ -61,26 +59,30 @@ const Equipos: NextPage = (props : any) => {
                         </Flex>
                     </FadeUp>
                     {/* Makers top List */}
-                    <Flex></Flex>
+                    <Flex>
+                        
+                    </Flex>
                     <FadeUp>
                         <Flex flexDirection={"column"}  mx={"auto"} width={['90%', '90%', '90%', '64rem']}>
-                            {props.equiposProps.data.map((maker : any, index : number) => {
-                                return (
-                                    <Flex key={index} flexDirection={"column"} width={"100%"}>
-                                        <Text as="h2" mb={"2rem"}>{maker.attributes.Name}</Text>
-                                        <Flex width={"100%"}>
-                                            {maker.attributes.Products.data.map((product : any, index : number) => (
-                                                <ProductCard 
-                                                    key={index} 
-                                                    product={product} 
-                                                    width={[1,1,"calc(100% / 3)"]}
-                                                />
-                                            ))}
+                            <Flex flexDirection={"column"} mx={"-2rem"}>
+                                {props.equiposProps.data.map((maker : any, index : number) => {
+                                    return (
+                                        <Flex key={index} flexDirection={"column"} width={"100%"} mx={"2rem"} mb={"4rem"}>
+                                            <Text as="h2" mb={"2rem"}>{maker.attributes.Name}</Text>
+                                            <Flex width={"100%"} mx={"-1rem"} flexDirection={["column", "column", "row"]}>
+                                                {maker.attributes.Products.data.map((product : any, index : number) => (
+                                                    <ProductCard 
+                                                        mx={"1rem"}
+                                                        key={index} 
+                                                        product={product} 
+                                                        width={[1,1,1/3]}
+                                                    />
+                                                ))}
+                                            </Flex>
                                         </Flex>
-                                    </Flex>
-                                )
-                            }
-                            )}
+                                    )
+                                })}
+                            </Flex>
                         </Flex>
                     </FadeUp>
                 </Flex>
