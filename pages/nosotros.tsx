@@ -14,13 +14,13 @@ import FadeUp from '../components/FadeUp';
 const Nosotros: NextPage = (props : any) => {
 
     return (
-        <StyledNosotrosPage flexDirection={"column"}>
-            <Root
-                header={
-                    <Box className={"hero-nosotros"} height="calc(100vh - 4rem)">
-                    </Box>
-                }
-                >
+        <Root
+            header={
+                <Box className={"hero-nosotros"} height="calc(100vh - 4rem)">
+                </Box>
+            }
+        >
+            <StyledNosotrosPage flexDirection={"column"}>
                 <Flex flexDirection={"column"} backgroundColor={"white"} pb={"8rem"}>
                     <Flex 
                         mx={"auto"}
@@ -51,7 +51,7 @@ const Nosotros: NextPage = (props : any) => {
                         alignItems={"center"}
                         justifyContent={"space-between"}
                         width={['90%', '90%', '90%', '64rem']}
-                       
+                    
                     >
                         <FadeUp>
                             <Flex mx={"-1rem"} width={"100%"}>
@@ -82,8 +82,8 @@ const Nosotros: NextPage = (props : any) => {
                         </FadeUp>
                     </Flex>
                 </Flex>
-            </Root>
-        </StyledNosotrosPage>
+            </StyledNosotrosPage>
+        </Root>
     )
 }
 

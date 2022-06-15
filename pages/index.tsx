@@ -26,8 +26,8 @@ const HomepageHero = (props : any) => {
   }, []);
 
   return (
-    <StyledHomepageHero background={"black"} height={"50rem"}>
-      {/* <video loop autoPlay={true} muted src={'./video/portada.mp4'} /> */}
+    <StyledHomepageHero background={"black"}>
+      <video loop autoPlay={true} muted src={'./video/portada.mp4'} />
     </StyledHomepageHero>
   )
 }

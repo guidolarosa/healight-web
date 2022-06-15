@@ -15,8 +15,8 @@ import SocialLinks from '../components/SocialLinks';
 
 const Equipos: NextPage = (props : any) => {
     return (
-        <StyledEquiposPage flexDirection={"column"}>
-            <Root showFooter={false}>
+        <Root showFooter={false}>
+            <StyledEquiposPage flexDirection={"column"}>
                 <Flex 
                     mx={"auto"}
                     py={"4rem"}
@@ -38,8 +38,8 @@ const Equipos: NextPage = (props : any) => {
                         </FadeUp>
                     </Flex>
                 </Flex>
-            </Root>
-        </StyledEquiposPage>
+            </StyledEquiposPage>
+        </Root>
     )
 }
 
