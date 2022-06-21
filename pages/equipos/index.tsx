@@ -11,11 +11,16 @@ import FadeUp from '../../components/FadeUp';
 import ProductCard from '../../components/ProductCard';
 
 const Equipos: NextPage = (props : any) => {
-    console.log(props);
     return (
         <Root
             header={
-                <StyledHeader className={"hero-equipos"} height="calc(100vh - 4rem)"/>
+                <StyledHeader className={"hero-equipos"} height="calc(50rem)">
+                    {/* <Flex flexDirection={"column"} height={"100%"}>
+                        <Flex width={['90%', '90%', "50rem"]} mx={'auto'} pt={'10rem'} height={"100%"}>
+                            <Text sx={{color: 'white', fontWeight: 600, fontSize: '5rem'}}>Conocé nuestros equipos</Text>
+                        </Flex>
+                    </Flex> */}
+                </StyledHeader>
             }
             >
                 <StyledEquiposPage flexDirection={"column"}>
@@ -75,7 +80,7 @@ const Equipos: NextPage = (props : any) => {
                                                         mx={"1rem"}
                                                         key={index} 
                                                         product={product} 
-                                                        width={[1,1,1/3]}
+                                                        width={[1,1,'calc((100% / 3) - 2rem)']}
                                                     />
                                                 ))}
                                             </Flex>

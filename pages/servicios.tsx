@@ -15,17 +15,20 @@ import { getStrapiMedia } from '../lib/media';
 import FadeUp from '../components/FadeUp';
 
 const ServiceCard = (props : any) => (
-    <Flex sx={{backgroundColor: 'white', flexDirection: 'column', textAlign: 'center', alignItems: 'center', borderRadius: '0.5rem'}} {...props} pt={"2rem"}>
+    <Flex sx={{ backgroundColor: 'white', flexDirection: 'column', textAlign: 'center', alignItems: 'center', borderRadius: '0.5rem', cursor: 'pointer', '&:hover': {'.arrow-down': {transform: 'translateY(0.5rem)'}} }} {...props} pt={"2rem"} onClick={props.onClick}>
         <Flex sx={{borderRadius: '0.25rem', alignItems: 'center', justifyContent: 'center'}} mb={"2rem"} width={"4rem"} height={"4rem"} backgroundColor="lightgray">
             {props.icon}
         </Flex>
         <Text as="h3" fontSize={"1.5rem"}>
             {props.title}
         </Text>
-        <RiArrowDropDownLine 
-            fontSize={'3rem'}
-            color={"#93D4D0"}
-        />
+        <Flex justifyContent={'center'} className="arrow-down" sx={{transition: '0.15s ease-in-out all'}}>
+            <RiArrowDropDownLine 
+                fontSize={'3rem'}
+                color={"#93D4D0"}
+
+            />
+        </Flex>
         <Box height="1rem" backgroundColor={"#93D4D0"} width="100%" sx={{
             borderRadius: '0 0 0.5rem 0.5rem'
         }}/>
@@ -67,28 +70,41 @@ const Servicios: NextPage = (props : any) => {
                     pt={'4rem'}
                     pb={'12rem'}
                 >
-                    <Flex width={'100%'} mx={'4rem'}>
+                    <Flex width={'100%'} mx={[0, 0, '4rem']} flexWrap={['wrap', 'wrap', 'nowrap']}>
                         <ServiceCard 
                             width={[1,1,1/3]}
                             title="Servicio Técnico"
                             mx={'1rem'}
+                            mb={['2rem', '2rem', 0]}
                             icon={<FaTools fontSize={"2rem"} />}
-                            />
+                            onClick={() => {
+                                document.querySelector('#servicio-tecnico .scroll-target')?.scrollIntoView()
+                            }}
+                        />
                         <ServiceCard 
                             width={[1,1,1/3]}
                             title="Marketing Kit"
                             mx={'1rem'}
+                            mb={['2rem', '2rem', 0]}
                             icon={<FaToolbox fontSize={"2rem"} />}
-                            />
+                            onClick={() => {
+                                document.querySelector('#marketing-kit .scroll-target')?.scrollIntoView()
+                            }}
+                        />
                         <ServiceCard 
                             width={[1,1,1/3]}
                             title="Healight Academy"
                             mx={'1rem'}
+                            mb={['2rem', '2rem', 0]}
                             icon={<HiAcademicCap fontSize={"2rem"} />}
+                            onClick={() => {
+                                document.querySelector('#healight-academy .scroll-target')?.scrollIntoView()
+                            }}
                         />
                     </Flex>
-                    <Flex width="100%" mt={"8rem"} alignItems={'center'}>
-                        <Box width={1/2}>
+                    <Flex width="100%" mt={"8rem"} alignItems={'center'} id="servicio-tecnico" sx={{position: 'relative'}} flexWrap={['wrap', 'wrap', 'nowrap']} flexDirection={["column-reverse", "column-reverse", "row"]}>
+                        <Box className="scroll-target" sx={{position: 'absolute', top: '-8rem'}}/>
+                        <Box width={[1, 1, 1/2]}>
                             <Text as="h2" fontSize={"2rem"} mb={"1rem"}>Servicio Técnico</Text>
                             <Flex as="ul" flexDirection="column" sx={{
                                 'li': {
@@ -117,15 +133,16 @@ const Servicios: NextPage = (props : any) => {
                                 </Box>
                             </Flex>
                         </Box>
-                        <Flex width={1/2}>
+                        <Flex width={[1, 1, 1/2]} mb={['3rem', '3rem', 0]}>
                             <Box mx={"auto"} as="img" src="/img/equipos/asclepion/mediostar_monolith/3.png" height={"20rem"}/>
                         </Flex>
                     </Flex>
-                    <Flex width="100%" mt={"8rem"}>
-                        <Box width={1/2}>
+                    <Flex width="100%" mt={"8rem"} id="marketing-kit" sx={{position: 'relative'}} flexWrap={['wrap', 'wrap', 'nowrap']} flexDirection={["column", "column-reverse", "row"]}>
+                        <Box className="scroll-target" sx={{position: 'absolute', top: '-8rem'}}/>
+                        <Box width={[1, 1, 1/2]} mb={['2rem', '2rem', 0]}>
                             <Box as="img" src={"/img/servicios/marketing_kit.png"} />
                         </Box>
-                        <Box width={1/2}>
+                        <Box width={[1, 1, 1/2]}>
                             <Text as="h2" fontSize={"2rem"} mb={"1rem"}>Marketing Kit</Text>
                             <Text mb={"2rem"}>Con la compra de cada equipo, se entrega un Marketing Kit que contiene:</Text>
                             <Flex as="ul" flexDirection="column" sx={{
@@ -146,7 +163,8 @@ const Servicios: NextPage = (props : any) => {
                             </Flex>
                         </Box>
                     </Flex>
-                    <Flex width="100%" mt={"8rem"} alignItems={"center"}>
+                    <Flex width="100%" mt={"8rem"} alignItems={"center"} id="healight-academy" sx={{position: 'relative'}}>
+                        <Box className="scroll-target" sx={{position: 'absolute', top: '-8rem'}}/>
                         <Box width={1/2}>
                             <Text as="h2" fontSize={"2rem"} mb={"1rem"}>Healight Academy</Text>
                             <Text as="h3" mb={"1rem"}>Capacitaciones</Text>

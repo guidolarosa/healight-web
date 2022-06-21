@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import { Box, Flex, Text } from 'rebass'
 import Root from '../components/Root';
 import { NextPage } from 'next';
-import theme from './../utils/theme'
-import Link from './../components/Link';
-import { BsHeadset } from 'react-icons/bs'
 import { fetchAPI  } from '../lib/api';
 import { getStrapiMedia } from '../lib/media';
 import Card from './../components/Card';
@@ -16,7 +13,20 @@ const Nosotros: NextPage = (props : any) => {
     return (
         <Root
             header={
-                <Box className={"hero-nosotros"} height="calc(100vh - 4rem)">
+                <Box 
+                    className={"hero-nosotros"} 
+                    height="calc(30rem)" 
+                    sx={{
+                        backgroundImage: `url(/img/nosotros/portada.png)`,
+                        backgroundPosition: 'center right',
+                        backgroundSize: 'cover'
+                    }}
+                >
+                    <Flex flexDirection={"column"} height={"100%"}>
+                        <Flex width={['90%', '90%', "50rem"]} mx={'auto'} alignItems={'center'} height={"100%"}>
+                            <Text sx={{color: 'white', fontWeight: 600, fontSize: '3rem'}}>Innovar para mejorar la calidad de vida de los pacientes</Text>
+                        </Flex>
+                    </Flex>
                 </Box>
             }
         >
@@ -29,21 +39,17 @@ const Nosotros: NextPage = (props : any) => {
                         justifyContent={"space-between"}
                         width={['90%', '90%', '90%', '64rem']}
                     >
-                        <Box width={['100%', '100%', "50rem"]}>
-                            <FadeUp>
-                                <Text mb={"1rem"} as="h1" fontSize={"3.5rem"}>
-                                    Misión, visión y propósito
-                                </Text>
-                            </FadeUp>
-                            <FadeUp>
-                                <Text as={"p"} sx={{lineHeight: '2.25rem'}} fontSize={"1.5rem"} mb={"2rem"}>
-                                    Somos una empresa especializada en tecnología médica de alta complejidad con más de 10 años de experiencia en la industria, brindando una solución integral a nuestros clientes y sus pacientes. 
-                                </Text>
-                                <Text as={"p"} sx={{lineHeight: '2.25rem'}} fontSize={"1.5rem"}>
-                                    Nuestros productos se encuentran certificados, testados y aprobados por los organismos más importantes vinculados a la Salud mundial. (A.M.A.T. y F.D.A.)
-                                </Text>
-                            </FadeUp>
-                        </Box>
+                        <Flex width={['100%', '100%', "50rem"]} flexDirection="column">
+                            <Text mb={"1rem"} as="h1" fontSize={"3.5rem"}>
+                                Misión, visión y propósito
+                            </Text>
+                            <Text as={"p"} sx={{lineHeight: '2.25rem'}} fontSize={"1.5rem"} mb={"2rem"}>
+                                Somos una empresa especializada en tecnología médica de alta complejidad con más de 10 años de experiencia en la industria, brindando una solución integral a nuestros clientes y sus pacientes. 
+                            </Text>
+                            <Text as={"p"} sx={{lineHeight: '2.25rem'}} fontSize={"1.5rem"}>
+                                Nuestros productos se encuentran certificados, testados y aprobados por los organismos más importantes vinculados a la Salud mundial. (A.M.A.T. y F.D.A.)
+                            </Text>
+                        </Flex>
                     </Flex>
                     <Flex 
                         mx={"auto"}
@@ -53,9 +59,9 @@ const Nosotros: NextPage = (props : any) => {
                         width={['90%', '90%', '90%', '64rem']}
                     
                     >
-                        <FadeUp>
-                            <Flex mx={"-1rem"} width={"100%"}>
-                                {props.nosotrosProps.data.map((associate : any, index : number) => (
+                        <Flex mx={"-1rem"} width={"100%"}>
+                            {props.nosotrosProps.data.map((associate : any, index : number) => (
+                                <FadeUp mx={"1rem"} data-aos-delay={index * 200}>
                                     <Card key={index} dark width={"100%"} mx={"1rem"}>
                                         <Box mx={"auto"} as="img" width={"8rem"} mb={"1rem"} src={getStrapiMedia(associate.attributes.Portrait)}/>
                                         <Text textAlign={"center"} fontSize={"1.5rem"} as="h3" sx={{mb: '1rem'}} height={"4rem"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
@@ -77,9 +83,9 @@ const Nosotros: NextPage = (props : any) => {
                                             {associate.attributes.Description}
                                         </Text>
                                     </Card>
-                                ))}
-                            </Flex>
-                        </FadeUp>
+                                </FadeUp>
+                            ))}
+                        </Flex>
                     </Flex>
                 </Flex>
             </StyledNosotrosPage>

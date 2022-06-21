@@ -11,9 +11,7 @@ import ReactMarkdown from 'react-markdown';
 
 
 const Equipo: NextPage = (props : any) => {
-    console.log(props.equipoProps.data);
     const equipment = props.equipoProps.data[0].attributes;
-    console.log(equipment)
     return (
         <Root
         header={
@@ -76,7 +74,8 @@ const Equipo: NextPage = (props : any) => {
                             backgroundPosition: 'center',
                             position: 'relative',
                             my: '4rem',
-                            backgroundColor: 'whitesmoke'
+                            backgroundColor: 'whitesmoke',
+                            backgroundBlendMode: 'multiply'
                             }}>
                         </Box>
                         <Box sx={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>

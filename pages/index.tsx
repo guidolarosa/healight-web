@@ -33,7 +33,6 @@ const HomepageHero = (props : any) => {
 }
 
 const Home: NextPage = (props : any) => {
-  console.log(props);
   return (
     <Root
       header={
