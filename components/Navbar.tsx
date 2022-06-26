@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Flex, Box } from 'rebass';
 import { MainNavigationContext } from '../pages/_app';
-import theme from './../utils/theme';
 import Image from 'next/image';
 import {Link} from 'rebass';
 import { useState } from 'react';
@@ -9,7 +8,6 @@ import { AiOutlineMenu } from 'react-icons/ai';
 
 const Navbar = (props : any) => {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-    type value = any;
     return (
         <StyledNavbar justifyContent={'center'} sx={{
             backgroundColor: !isMobileNavOpen ? 'hsla(0,0%,0%,0.5)' : 'hsla(0,0%,0%,1)',

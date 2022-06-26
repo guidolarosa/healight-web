@@ -9,8 +9,10 @@ import { BsHeadset } from 'react-icons/bs'
 import { fetchAPI } from '../../lib/api';
 import FadeUp from '../../components/FadeUp';
 import ProductCard from '../../components/ProductCard';
+import { getStrapiMedia } from '../../lib/media';
 
 const Equipos: NextPage = (props : any) => {
+    console.log(props.equiposProps.data[0])
     return (
         <Root
             header={
@@ -69,10 +71,27 @@ const Equipos: NextPage = (props : any) => {
                     </Flex>
                     <FadeUp>
                         <Flex flexDirection={"column"}  mx={"auto"} width={['90%', '90%', '90%', '64rem']}>
+                            <Flex flexDirection={['row']} flexWrap={['wrap']}>
+                                {props.equiposProps.data.map((maker : any, index : number) => (
+                                    <Box mb={['1.25rem', '3rem']}>
+                                        <Box 
+                                        as="img" 
+                                        src={getStrapiMedia(maker.attributes.Logo)} sx={{
+                                            width: ['7rem','10rem'],
+                                            mr: '1rem',
+                                            cursor: 'pointer'
+                                        }}
+                                        onClick={() => {
+                                            document.getElementById(maker.attributes.Name + '-equipment')?.scrollIntoView();
+                                        }}
+                                    />
+                                    </Box>
+                                ))}
+                            </Flex>
                             <Flex flexDirection={"column"} mx={"-2rem"}>
                                 {props.equiposProps.data.map((maker : any, index : number) => {
                                     return (
-                                        <Flex key={index} flexDirection={"column"} width={"100%"} mx={"2rem"} mb={"4rem"}>
+                                        <Flex key={index} flexDirection={"column"} width={"100%"} px={"2rem"} mb={"4rem"} id={maker.attributes.Name + '-equipment'}>
                                             <Text as="h2" mb={"2rem"}>{maker.attributes.Name}</Text>
                                             <Flex width={"100%"} mx={"-1rem"} flexDirection={["column", "column", "row"]}>
                                                 {maker.attributes.Products.data.map((product : any, index : number) => (
@@ -110,6 +129,7 @@ export default Equipos;
 export async function getStaticProps(context : any) {
     const equiposProps = await fetchAPI("/makers", {
       populate: {
+        Logo: '*',
         Products: {
             populate: {
                 MainImage: '*'

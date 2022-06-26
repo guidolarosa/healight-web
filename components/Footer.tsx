@@ -15,7 +15,7 @@ const Footer = (props : any) => {
                         <Flex flexDirection={"column"} mb={"4rem"} justifyContent="center">
                             <Link mb={"1rem"} href="tel:+54 9 11 3158 9030" style={{display: 'flex', alignItems: 'center'}}>
                                 <AiFillPhone fontSize={"2rem"} style={{marginRight: "0.5rem"}} />
-                                +54 9 11 3158 9030
+                                +54 911 6006-7739
                             </Link>
                             <Link mb={"1rem"} href="" style={{display: 'flex', alignItems: 'center'}}>
                                 <MdEmail fontSize={"2rem"} style={{marginRight: "0.5rem"}} />

@@ -62,7 +62,7 @@ const Nosotros: NextPage = (props : any) => {
                         <Flex mx={"-1rem"} width={"100%"}>
                             {props.nosotrosProps.data.map((associate : any, index : number) => (
                                 <FadeUp key={index} mx={"1rem"} data-aos-delay={index * 200}>
-                                    <Card  dark width={"100%"} mx={"1rem"}>
+                                    <Card dark width={"100%"} mx={"1rem"}>
                                         <Box mx={"auto"} as="img" width={"8rem"} mb={"1rem"} src={getStrapiMedia(associate.attributes.Portrait)}/>
                                         <Text textAlign={"center"} fontSize={"1.5rem"} as="h3" sx={{mb: '1rem'}} height={"4rem"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
                                             {associate.attributes.Name}

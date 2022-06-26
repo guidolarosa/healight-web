@@ -47,7 +47,7 @@ const ContactForm = (props : any) => {
 
                 axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:1337"}/api/ezforms/submit`, {formData: form})
                     .then((res) => {
-                    console.log(res)
+                        console.log(res)
                     })
                     .catch((error) => {
                     // error.response.status Check status code

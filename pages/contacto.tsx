@@ -12,6 +12,27 @@ import { getStrapiMedia } from '../lib/media';
 import FadeUp from '../components/FadeUp';
 import ContactForm from '../components/ContactForm';
 import SocialLinks from '../components/SocialLinks';
+import { AiFillPhone } from 'react-icons/ai';
+import { MdEmail, MdLocationOn } from 'react-icons/md';
+
+const BottomFormLink = (props : any) => (
+    <Flex sx={{alignItems: 'center'}}>
+        <Flex
+            sx={{
+                width: '3rem',
+                height: '3rem',
+                background: '#222222',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '2rem',
+                mr: '1rem'
+            }}
+        >
+            {props.icon}
+        </Flex>
+        {props.content}
+    </Flex>
+)
 
 const Equipos: NextPage = (props : any) => {
     return (
@@ -19,7 +40,7 @@ const Equipos: NextPage = (props : any) => {
             <StyledEquiposPage flexDirection={"column"}>
                 <Flex 
                     mx={"auto"}
-                    py={"4rem"}
+                    py={"2rem"}
                     alignItems={"center"}
                     justifyContent={"space-between"}
                     width={['90%', '90%', '90%', '64rem']}
@@ -32,8 +53,34 @@ const Equipos: NextPage = (props : any) => {
                             </Flex>
                         </FadeUp>
                         <FadeUp>
-                            <Flex pt={'2rem'} width={[1,1,'50%']}>
+                            <Flex pt={'2rem'} width={[1,1,'50%']} flexDirection={'column'}>
                                 <ContactForm/>
+                                <Flex className="bottom-form-links" mt={'2rem'} flexDirection={'column'}>
+                                    <Flex sx={{
+                                        width: '100%',
+                                        justifyContent: 'space-between',
+                                        mb: '1rem'
+                                    }}>
+                                        <BottomFormLink 
+                                            icon={<AiFillPhone />}
+                                            content={<Text>+54 911 6006-7739</Text>}
+                                        />
+                                        <BottomFormLink 
+                                            icon={
+                                                <MdEmail />
+                                            }
+                                            content={
+                                                <Text>info@healight.com.ar</Text>
+                                            }
+                                        />
+                                    </Flex>
+                                    <Flex>
+                                        <BottomFormLink
+                                            icon={<MdLocationOn />}
+                                            content={'Av. Ing. Huergo 653 piso 7 - Buenos Aires - Argentina'}
+                                        />
+                                    </Flex>
+                                </Flex>
                             </Flex>
                         </FadeUp>
                     </Flex>

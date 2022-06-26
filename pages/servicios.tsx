@@ -129,7 +129,7 @@ const Servicios: NextPage = (props : any) => {
                                     Proveemos el mejor programa de mantenimiento preventivo de equipos de nuestras marcas distribuidoras.
                                 </Box>
                                 <Box as="li">
-                                    Brindamos asesoramiento idóneo para el adecuado mantenimientoy recambio de equipos.
+                                    Brindamos asesoramiento idóneo para el adecuado mantenimiento y recambio de equipos.
                                 </Box>
                             </Flex>
                         </Box>
