@@ -73,7 +73,7 @@ const Equipos: NextPage = (props : any) => {
                         <Flex flexDirection={"column"}  mx={"auto"} width={['90%', '90%', '90%', '64rem']}>
                             <Flex flexDirection={['row']} flexWrap={['wrap']}>
                                 {props.equiposProps.data.map((maker : any, index : number) => (
-                                    <Box mb={['1.25rem', '3rem']}>
+                                    <Box mb={['1.25rem', '3rem']} key={index}>
                                         <Box 
                                         as="img" 
                                         src={getStrapiMedia(maker.attributes.Logo)} sx={{
