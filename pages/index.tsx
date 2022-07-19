@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Root from '../components/Root'
 import styled from 'styled-components'
-import { Flex, Box, Text, Button } from 'rebass'
+import { Flex, Box, Text, Button as RBButton } from 'rebass'
 import theme from './../utils/theme'
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
@@ -13,7 +13,8 @@ import Link from '../components/Link'
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import FadeUp from '../components/FadeUp';
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown';
+import Button from './../components/Button';
 
 
 const HomepageHero = (props : any) => {
@@ -113,7 +114,7 @@ const Home: NextPage = (props : any) => {
                         {equipment.attributes.LongDescription}
                       </ReactMarkdown>
                     </Box>
-                    <Button as="a" href={`/equipos/${equipment.attributes.Name}}`} sx={{
+                    <RBButton as="a" href={`/equipos/${equipment.attributes.Name}}`} sx={{
                       background: theme.color.buttonBackgroundDefault, 
                       borderRadius: '10rem', 
                       mt: '2rem', 
@@ -124,7 +125,7 @@ const Home: NextPage = (props : any) => {
                       mb: ['2rem', '2rem', 0]
                     }}>
                       Quiero saber más
-                    </Button>
+                    </RBButton>
                   </Flex>
                   <Box mt={'auto'} width={[1, 1, '50%']} height={['30rem', '30rem', '100%']} sx={{
                     backgroundImage: `url(${getStrapiMedia(equipment.attributes.MainImage)})`,
@@ -190,7 +191,18 @@ const Home: NextPage = (props : any) => {
           <Box width={['90%', '90%', '90%', '64rem']} pt={'2rem'} pb={"2rem"} mx={"auto"}>
             <Box className="homepage-section lower-banner">
               <Card backgroundImage="/img/woman.png" height="30rem">
-                <Box></Box>
+                <Flex flexDirection="column" ml={'auto'} width={'40%'} pt={'2rem'}>
+                  <Text as={"span"} sx={{mb: '1.2rem', fontWeight: 600, opacity: 0.4, fontSize: '1.2rem'}}>Quanta System</Text>
+                  <Text as="strong" sx={{mb: '1.2rem', fontSize: '2rem'}}>
+                    YOULASER
+                  </Text>
+                  <Text as="p" sx={{fontSize: '1rem', lineHeight: '1.2rem !important', mb: '1rem', opacity: 0.7}}>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor nvidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    </Text>
+                  <Button sx={{width: 'fit-content', borderRadius: '10rem'}}>
+                    Más información
+                  </Button>
+                </Flex>
               </Card>
             </Box>
           </Box>
@@ -206,7 +218,6 @@ const StyledHomepageHero = styled(Flex)<any>`
   .background-image,
   video {
     width: 100%;
-    height: 50rem;
     margin-bottom: auto;
     background-position: center;
     background-size: cover;

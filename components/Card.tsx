@@ -3,10 +3,11 @@ import { Box, Flex} from 'rebass';
 
 const Card = (props : any) => {
     return (
-        <StyledCard flexDirection={"column"} sx={{
+        <StyledCard {...props} flexDirection={"column"} sx={{
             borderRadius: '0.75rem',
-            p: props.padding ? '2rem' : 0
-        }} {...props}>
+            p: props.padding ? '2rem' : 0,
+            ...props.sx
+        }} >
             {props.children}
         </StyledCard>
     )
